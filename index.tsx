@@ -168,9 +168,9 @@ export default class OTPInputView extends Component<InputProps, OTPInputViewStat
 
     blurAllFields = () => {
         this.fields.forEach((field: TextInput | null) => (field as TextInput).blur())
-        this.setState({
-            selectedIndex: -1,
-        })
+        // this.setState({
+        //     selectedIndex: -1,
+        // })
     }
 
 
@@ -192,7 +192,7 @@ export default class OTPInputView extends Component<InputProps, OTPInputViewStat
                 <TextInput
                     testID="textInput"
                     underlineColorAndroid='rgba(0,0,0,0)'
-                    style={selectedIndex === index ? [defaultTextFieldStyle, codeInputFieldStyle, codeInputHighlightStyle] : [defaultTextFieldStyle, codeInputFieldStyle]}
+                    style={selectedIndex >= index ? [defaultTextFieldStyle, codeInputFieldStyle, codeInputHighlightStyle] : [defaultTextFieldStyle, codeInputFieldStyle]}
                     ref={ref => { this.fields[index] = ref }}
                     onChangeText={text => {
                         this.handleChangeText(index, text)
